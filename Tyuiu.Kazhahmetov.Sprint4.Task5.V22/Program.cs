@@ -1,0 +1,51 @@
+﻿using Tyuiu.Kazhahmetov.Sprint4.Task5.V22.Lib;
+
+DataService ds = new DataService();
+Random rnd = new Random();
+
+Console.Title = "Спринт #4 | Выполнил: Кажахметов А. Е. | ПИНб-25-1";
+
+Console.WriteLine("***************************************************************************");
+Console.WriteLine("* Спринт #4                                                               *");
+Console.WriteLine("* Тема: Базовые навыки работы в С#                                        *");
+Console.WriteLine("* Задание #5                                                              *");
+Console.WriteLine("* Вариант #22                                                             *");
+Console.WriteLine("* Выполнил: Кажахметов Амир Ерболович | ПИНб-25-1                         *");
+Console.WriteLine("***************************************************************************");
+Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                        *");
+Console.WriteLine("***************************************************************************");
+
+Console.WriteLine("Строки: ");
+int rows = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Таблицы: ");
+int cols = Convert.ToInt32(Console.ReadLine());
+
+int[,] matrix = new int[rows, cols];
+
+for (int i = 0; i < rows; i++)
+{
+    for (int j = 0; j < cols; j++)
+    {
+        matrix[i, j] = rnd.Next(-8, 9);
+    }
+}
+
+Console.WriteLine("***************************************************************************");
+
+for (int i = 0; i < rows; i++)
+{
+    for (int j = 0; j < cols; j++)
+    {
+        Console.Write($"{matrix[i, j]} \t");
+    }
+    Console.WriteLine();
+}
+
+Console.WriteLine("***************************************************************************");
+Console.WriteLine("* РЕЗУЛЬТАТ:                                                              *");
+Console.WriteLine("***************************************************************************");
+
+int res = ds.Calculate(matrix);
+Console.WriteLine(res);
+Console.ReadKey();
